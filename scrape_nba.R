@@ -2,16 +2,15 @@ library(tidyverse)
 library(rvest)
 library(lubridate)
 
-url <- "https://www.basketball-reference.com/leagues/NBA_2018_games.html"
-raw <- read_html(url)
-
-months <- raw %>%
-  html_nodes(".filter a") %>%
-  html_attr("href") %>%
-  map(~ read_html(str_glue("https://www.basketball-reference.com", .x)))
-months %>%
-  map_dfr(function(month_html) month_html %>%
-    html_nodes("tbody tr:not(.thead)") %>%
+scrape_nba_year <- function(year) {
+  str_glue("https://www.basketball-reference.com/leagues/NBA_",
+           year, "_games.html") %>%
+    read_html %>%
+    html_nodes(".filter a") %>%
+    html_attr("href") %>%
+    map(~ read_html(str_glue("https://www.basketball-reference.com", .x))) %>%
+    map_dfr(function(month_html) month_html %>%
+      html_nodes("tbody tr:not(.thead)") %>%
       map_dfr(function(row) {
         list(date = row %>% html_node("[data-stat=\"date_game\"]") %>%
                html_text %>% mdy,
@@ -32,5 +31,7 @@ months %>%
              attendance = row %>% html_node("[data-stat=\"attendance\"]") %>%
                html_text %>% parse_number
         )
-      })) %>% write_rds("nba_2017_18.rds")
+      })) %>% write_rds(str_glue("nba_", year, ".rds"))
+}
 
+scrape_nba_year(2017)
