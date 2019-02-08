@@ -35,4 +35,5 @@ scrape_nfl_year <- function(year) {
     }) %>% write_rds(str_glue("nfl_", year, ".rds"))
 }
 
-scrape_nfl_year(2017)
+scrape_nfl_year(2016)
+# scrape_nfl_year(2017)
