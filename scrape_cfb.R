@@ -25,5 +25,6 @@ scrape_cfb_year <- function(year) {
     write_rds(str_glue("cfb_", year, ".rds"))
 }
 
-scrape_cfb_year(2017)
-scrape_cfb_year(2018)
+scrape_cfb_year(2016)
+# scrape_cfb_year(2017)
+# scrape_cfb_year(2018)
