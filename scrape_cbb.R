@@ -11,6 +11,7 @@ scrape_cbb_year <- function(year) {
     tibble %>%
     rename(date = ".") %>%
     mutate(games = map(date, function(date) {
+      print(date)
       url <- str_glue("https://www.sports-reference.com/cbb/boxscores/index.cgi",
                "?month=", month(date),
                "&day=", day(date),
@@ -32,5 +33,7 @@ scrape_cbb_year <- function(year) {
     write_rds(str_glue("cbb_", year, ".rds"))
 }
 
-scrape_cbb_year(2017)
+# scrape_cbb_year(2017)
+# scrape_cbb_year(2018)
+scrape_cbb_year(2019)
 

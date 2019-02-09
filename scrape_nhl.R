@@ -27,4 +27,6 @@ scrape_nhl_year <- function(year) {
     }) %>% write_rds(str_glue("nhl_", year, ".rds"))
 }
 
-scrape_nhl_year(2017)
+# scrape_nhl_year(2017)
+# scrape_nhl_year(2018)
+scrape_nhl_year(2019)

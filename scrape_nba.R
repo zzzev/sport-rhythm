@@ -34,4 +34,6 @@ scrape_nba_year <- function(year) {
       })) %>% write_rds(str_glue("nba_", year, ".rds"))
 }
 
-scrape_nba_year(2017)
+# scrape_nba_year(2017)
+# scrape_nba_year(2018)
+scrape_nba_year(2019)
