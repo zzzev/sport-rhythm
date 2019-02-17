@@ -20,7 +20,7 @@ scrape_mlb_year <- function(year) {
     }) %>%
     fill(date) %>%
     filter(!is.na(home)) %>%
-    write_rds(str_glue("mlb_", year, ".rds"))
+    write_rds(str_glue("data/mlb_", year, ".rds"))
 
 }
 

@@ -32,7 +32,7 @@ scrape_nfl_year <- function(year) {
            box_url = row %>%
              html_node("[data-stat=\"boxscore_word\"] a") %>%
              html_attr("href"))
-    }) %>% write_rds(str_glue("nfl_", year, ".rds"))
+    }) %>% write_rds(str_glue("data/nfl_", year, ".rds"))
 }
 
 scrape_nfl_year(2016)

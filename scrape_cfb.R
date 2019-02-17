@@ -22,7 +22,7 @@ scrape_cfb_year <- function(year) {
            loser_points = html_node(row, "[data-stat=\"loser_points\"]") %>%
              html_text %>% parse_number,
            notes = html_node(row, "[data-stat=\"notes\"]") %>% html_text)) %>%
-    write_rds(str_glue("cfb_", year, ".rds"))
+    write_rds(str_glue("data/cfb_", year, ".rds"))
 }
 
 scrape_cfb_year(2016)

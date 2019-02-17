@@ -30,7 +30,7 @@ scrape_cbb_year <- function(year) {
         })
     })) %>%
     unnest %>%
-    write_rds(str_glue("cbb_", year, ".rds"))
+    write_rds(str_glue("data/cbb_", year, ".rds"))
 }
 
 # scrape_cbb_year(2017)

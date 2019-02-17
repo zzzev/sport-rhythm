@@ -31,7 +31,7 @@ scrape_nba_year <- function(year) {
              attendance = row %>% html_node("[data-stat=\"attendance\"]") %>%
                html_text %>% parse_number
         )
-      })) %>% write_rds(str_glue("nba_", year, ".rds"))
+      })) %>% write_rds(str_glue("data/nba_", year, ".rds"))
 }
 
 # scrape_nba_year(2017)

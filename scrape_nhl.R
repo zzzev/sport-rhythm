@@ -24,7 +24,7 @@ scrape_nhl_year <- function(year) {
              html_text %>% parse_number,
            length = row %>% html_node("[data-stat=\"game_duration\"]") %>%
              html_text)
-    }) %>% write_rds(str_glue("nhl_", year, ".rds"))
+    }) %>% write_rds(str_glue("data/nhl_", year, ".rds"))
 }
 
 # scrape_nhl_year(2017)

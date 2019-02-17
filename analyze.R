@@ -1,26 +1,26 @@
 library(tidyverse)
 library(lubridate)
 
-cbb <- bind_rows(read_rds("cbb_2017.rds"),
-                 read_rds("cbb_2018.rds"),
-                 read_rds("cbb_2019.rds")) %>%
+cbb <- bind_rows(read_rds("data/cbb_2017.rds"),
+                 read_rds("data/cbb_2018.rds"),
+                 read_rds("data/cbb_2019.rds")) %>%
   mutate(league = "cbb")
-cfb <- bind_rows(read_rds("cfb_2016.rds"),
-                 read_rds("cfb_2017.rds"),
-                 read_rds("cfb_2018.rds")) %>%
+cfb <- bind_rows(read_rds("data/cfb_2016.rds"),
+                 read_rds("data/cfb_2017.rds"),
+                 read_rds("data/cfb_2018.rds")) %>%
   mutate(league = "cfb")
-mlb <- bind_rows(read_rds("mlb_2017.rds"), read_rds("mlb_2018.rds")) %>%
+mlb <- bind_rows(read_rds("data/mlb_2017.rds"), read_rds("data/mlb_2018.rds")) %>%
   mutate(league = "mlb")
-nba <- bind_rows(read_rds("nba_2017.rds"),
-                 read_rds("nba_2018.rds"),
-                 read_rds("nba_2019.rds")) %>% mutate(league = "nba")
-nfl <- bind_rows(read_rds("nfl_2016.rds"),
-                 read_rds("nfl_2017.rds"),
-                 read_rds("nfl_2018.rds")) %>%
+nba <- bind_rows(read_rds("data/nba_2017.rds"),
+                 read_rds("data/nba_2018.rds"),
+                 read_rds("data/nba_2019.rds")) %>% mutate(league = "nba")
+nfl <- bind_rows(read_rds("data/nfl_2016.rds"),
+                 read_rds("data/nfl_2017.rds"),
+                 read_rds("data/nfl_2018.rds")) %>%
   select(-week) %>% mutate(league = "nfl")
-nhl <- bind_rows(read_rds("nhl_2017.rds"),
-                 read_rds("nhl_2018.rds"),
-                 read_rds("nhl_2019.rds"))%>% mutate(league = "nhl")
+nhl <- bind_rows(read_rds("data/nhl_2017.rds"),
+                 read_rds("data/nhl_2018.rds"),
+                 read_rds("data/nhl_2019.rds"))%>% mutate(league = "nhl")
 
 seasons <- tribble(
   ~league, ~season, ~reg_start,    ~reg_end,      ~post_start,   ~post_end,
